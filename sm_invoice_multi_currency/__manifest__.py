@@ -20,7 +20,7 @@ Main Features
     """,
     'author': 'Steven Marp',
     'website': 'https://apps.odoo.com/apps/modules/browse?author=Steven Marp',
-    'license': 'LGPL-3',
+    'license': 'OPL-1',
     'depends': ['account'],
     'data': [
         'views/account_move_views.xml',
