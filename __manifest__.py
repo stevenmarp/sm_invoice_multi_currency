@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Invoice Multi Currency',
-    'version': '18.0.1.0.0',
+    'version': '19.0.1.0.0',
     'category': 'Accounting',
     'summary': 'Show invoice amounts in both invoice currency and company currency',
     'description': """
