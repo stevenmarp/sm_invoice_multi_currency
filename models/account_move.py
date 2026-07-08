@@ -4,6 +4,11 @@ from odoo import models, fields, api
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
+    is_multi_currency = fields.Boolean(
+        string='Is Multi Currency',
+        compute='_compute_is_multi_currency',
+    )
+
     company_amount_untaxed = fields.Monetary(
         string='Untaxed Amount (Company)',
         compute='_compute_company_amounts',
@@ -28,6 +33,11 @@ class AccountMove(models.Model):
         currency_field='company_currency_id',
         store=True,
     )
+
+    @api.depends('currency_id', 'company_currency_id')
+    def _compute_is_multi_currency(self):
+        for move in self:
+            move.is_multi_currency = move.currency_id != move.company_currency_id
 
     @api.depends('amount_untaxed', 'amount_tax', 'amount_total', 'amount_residual', 'currency_id', 'company_currency_id', 'invoice_date', 'date')
     def _compute_company_amounts(self):
