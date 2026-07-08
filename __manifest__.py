@@ -26,7 +26,7 @@ Main Features
         'views/account_move_views.xml',
     ],
     'images': [
-        'static/description/icon.png',
+        'static/description/banner.gif',
     ],
     'application': False,
     'installable': True,
