@@ -6,7 +6,7 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='tax_totals_json']" position="after">
+            <xpath expr="//field[@name='amount_total'][@class='oe_subtotal_footer_separator']" position="after">
                 <field name="is_multi_currency" invisible="1"/>
                 <field name="company_amount_untaxed" string="Untaxed Amount (Company)"
                        attrs="{'invisible': [('is_multi_currency', '=', False)]}" readonly="1"/>
@@ -28,7 +28,7 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_invoice_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='amount_total_in_currency_signed']" position="after">
+            <xpath expr="//field[@name='amount_total_signed']" position="after">
                 <field name="company_amount_total" string="Total (Company)" sum="Total" optional="hide" decoration-bf="1" groups="base.group_multi_currency"/>
             </xpath>
         </field>
